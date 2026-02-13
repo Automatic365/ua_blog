@@ -15,12 +15,16 @@ const recentPosts = sortedPosts.slice(0, 3);
   title="Home - Jason"
   description="Welcome to my personal blog where I share thoughts on technology, learning, and personal growth."
 >
+  <!-- Floating decorative elements -->
+  <div class="fixed top-20 right-10 w-32 h-32 bg-red-100 rounded-full opacity-30 blur-3xl pointer-events-none animate-float"></div>
+  <div class="fixed bottom-20 left-10 w-40 h-40 bg-red-50 rounded-full opacity-40 blur-3xl pointer-events-none animate-float-delayed"></div>
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
     <section class="mb-16 relative">
-      <div class="absolute -left-4 top-0 w-1 h-32 bg-gradient-to-b from-red-600 to-red-800 rounded-full"></div>
-      <h1 class="text-4xl sm:text-5xl font-bold mb-6" style="color: var(--text-primary)">
-        Hi, I'm <span class="accent-underline">Jason</span>
+      <div class="absolute -left-4 top-0 w-1 h-32 bg-gradient-to-b from-red-600 to-red-800 rounded-full shadow-lg shadow-red-500/50"></div>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6 hero-text" style="color: var(--text-primary)">
+        Hi, I'm <span class="accent-underline glow-on-hover">Jason</span><span class="inline-block ml-2 animate-wave">👋</span>
       </h1>
       <div class="prose prose-lg">
         <p class="text-xl leading-relaxed" style="color: var(--text-primary)">
@@ -38,8 +42,10 @@ const recentPosts = sortedPosts.slice(0, 3);
 
     <!-- Recent Posts Section -->
     <section>
-      <h2 class="text-3xl font-bold mb-2" style="color: var(--text-primary)">Recent Posts</h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-red-600 to-red-800 rounded-full mb-8"></div>
+      <div class="flex items-center gap-4 mb-8">
+        <h2 class="text-3xl font-bold" style="color: var(--text-primary)">Recent Posts</h2>
+        <div class="flex-grow h-1 bg-gradient-to-r from-red-600 via-red-500 to-transparent rounded-full animate-shimmer"></div>
+      </div>
       <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
         {recentPosts.map((post) => (
           <PostCard
@@ -50,12 +56,17 @@ const recentPosts = sortedPosts.slice(0, 3);
           />
         ))}
       </div>
-      <div class="mt-12 text-center">
+      <div class="mt-12 text-center relative">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-48 h-12 bg-red-600 opacity-20 blur-xl rounded-full"></div>
+        </div>
         <a
           href="/blog"
-          class="inline-block px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          class="relative inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 group overflow-hidden"
         >
-          View All Posts →
+          <span class="relative z-10">View All Posts</span>
+          <span class="relative z-10 group-hover:translate-x-1 transition-transform">→</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
       </div>
     </section>

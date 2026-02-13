@@ -9,17 +9,51 @@
   --text-secondary: #475569;
 }
 
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 /* Typography improvements for high readability */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.7;
   color: var(--text-primary);
+  background: linear-gradient(-45deg, #ffffff, #fef2f2, #fff5f5, #ffffff);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
 }
 
-/* Accent underline effect */
+/* Custom cursor effect for links */
+a {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Accent underline effect with animation */
 .accent-underline {
   position: relative;
   display: inline-block;
+  background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: gradient-flow 3s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .accent-underline::after {
@@ -31,6 +65,27 @@ body {
   height: 3px;
   background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
   border-radius: 2px;
+  animation: underline-pulse 2s ease-in-out infinite;
+}
+
+@keyframes underline-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scaleX(0.95);
+  }
+}
+
+/* Glowing effect on hover for interactive elements */
+.glow-on-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.4));
 }
 
 /* Prose styles for blog content */
@@ -55,6 +110,20 @@ body {
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: #111827;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.prose h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(180deg, var(--accent-red), var(--accent-red-dark));
+  border-radius: 2px;
 }
 
 .prose h3 {
@@ -133,4 +202,115 @@ body {
   border-radius: 0.5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+/* Creative animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(20px) translateX(-10px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30% {
+    transform: rotate(14deg);
+  }
+  20%, 40% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 2.5s ease-in-out;
+  animation-delay: 0.5s;
+  transform-origin: 70% 70%;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Staggered fade-in for post cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-fade-in:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-fade-in:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-fade-in:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Magnetic button effect */
+@keyframes magnetic-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+  }
+}
+
+/* Text gradient flow */
+.hero-text {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-red) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: none;
 }
