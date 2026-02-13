@@ -16,16 +16,19 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 }).format(pubDate);
 ---
 
-<article class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-  <a href={`/blog/${slug}`} class="group">
-    <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+<article class="relative border-l-4 border-red-600 bg-white rounded-lg p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:border-red-700 hover:-translate-y-1">
+  <a href={`/blog/${slug}`} class="group block">
+    <h3 class="text-xl font-bold mb-2 group-hover:text-red-600 transition-colors" style="color: var(--text-primary)">
       {title}
     </h3>
-    <time class="text-sm text-gray-500 mb-3 block">
+    <time class="text-sm font-medium mb-3 block" style="color: var(--accent-red)">
       {formattedDate}
     </time>
-    <p class="text-gray-700 leading-relaxed">
+    <p class="leading-relaxed" style="color: var(--text-secondary)">
       {description}
     </p>
+    <span class="inline-block mt-4 text-red-600 font-medium group-hover:translate-x-2 transition-transform">
+      Read more →
+    </span>
   </a>
 </article>

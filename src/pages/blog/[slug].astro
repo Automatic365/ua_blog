@@ -33,18 +33,19 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 >
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Article Header -->
-    <header class="mb-8">
+    <header class="mb-12 relative">
       <a
         href="/blog"
-        class="text-blue-600 hover:text-blue-800 text-sm font-medium mb-4 inline-block"
+        class="text-red-600 hover:text-red-800 text-sm font-semibold mb-6 inline-flex items-center gap-2 transition-colors group"
       >
-        ← Back to all posts
+        <span class="group-hover:-translate-x-1 transition-transform">←</span> Back to all posts
       </a>
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+      <div class="absolute -left-4 top-12 w-1 h-24 bg-gradient-to-b from-red-600 to-red-800 rounded-full"></div>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4 mt-4" style="color: var(--text-primary)">
         {entry.data.title}
       </h1>
-      <div class="flex flex-wrap items-center gap-4 text-gray-600">
-        <time datetime={entry.data.pubDate.toISOString()}>
+      <div class="flex flex-wrap items-center gap-4 font-medium" style="color: var(--text-secondary)">
+        <time datetime={entry.data.pubDate.toISOString()} class="text-red-600 font-semibold">
           {formattedDate}
         </time>
         {entry.data.author && (
@@ -55,9 +56,9 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         )}
       </div>
       {entry.data.tags && entry.data.tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mt-4">
+        <div class="flex flex-wrap gap-2 mt-5">
           {entry.data.tags.map((tag) => (
-            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+            <span class="px-4 py-1.5 bg-red-50 text-red-700 text-sm font-medium rounded-full border border-red-200">
               {tag}
             </span>
           ))}
@@ -71,12 +72,12 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     </div>
 
     <!-- Article Footer -->
-    <footer class="mt-12 pt-8 border-t border-gray-200">
+    <footer class="mt-16 pt-8 border-t-2 border-red-100">
       <a
         href="/blog"
-        class="text-blue-600 hover:text-blue-800 font-medium"
+        class="text-red-600 hover:text-red-800 font-semibold inline-flex items-center gap-2 transition-colors group"
       >
-        ← Back to all posts
+        <span class="group-hover:-translate-x-1 transition-transform">←</span> Back to all posts
       </a>
     </footer>
   </article>

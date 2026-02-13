@@ -1,9 +1,36 @@
 @import "tailwindcss";
 
+/* Custom color palette for personality */
+:root {
+  --accent-red: #dc2626;
+  --accent-red-dark: #991b1b;
+  --accent-red-light: #fef2f2;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+}
+
 /* Typography improvements for high readability */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Accent underline effect */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+  border-radius: 2px;
 }
 
 /* Prose styles for blog content */
@@ -91,12 +118,15 @@ body {
 }
 
 .prose blockquote {
-  border-left: 4px solid #e5e7eb;
+  border-left: 4px solid var(--accent-red);
   padding-left: 1rem;
   margin-left: 0;
   margin-bottom: 1.5rem;
   font-style: italic;
   color: #6b7280;
+  background-color: var(--accent-red-light);
+  padding: 1rem;
+  border-radius: 0.25rem;
 }
 
 .prose img {

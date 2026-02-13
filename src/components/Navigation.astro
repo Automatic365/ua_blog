@@ -1,15 +1,20 @@
 ---
-// Navigation component with minimalist design
+// Navigation component with personality
+const currentPath = Astro.url.pathname;
 ---
 
-<nav class="border-b border-gray-200">
+<nav class="border-b-2 border-gray-100 backdrop-blur-sm sticky top-0 z-50 bg-white/80">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <a href="/" class="text-xl font-semibold text-gray-900 hover:text-gray-600 transition-colors">
-        Home
+      <a href="/" class="text-xl font-bold tracking-tight hover:text-red-600 transition-colors" style="color: var(--text-primary)">
+        Jason
       </a>
       <div class="flex space-x-8">
-        <a href="/blog" class="text-gray-700 hover:text-gray-900 transition-colors">
+        <a
+          href="/blog"
+          class={`font-medium transition-all duration-200 ${currentPath.startsWith('/blog') ? 'text-red-600 border-b-2 border-red-600' : 'hover:text-red-600'}`}
+          style={currentPath.startsWith('/blog') ? '' : 'color: var(--text-secondary)'}
+        >
           Blog
         </a>
       </div>
