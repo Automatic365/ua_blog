@@ -1,8 +1,8 @@
 ---
 title: "Building with Astro: A Beginner's Perspective"
 description: "My experience learning Astro and why it's great for building static websites and blogs."
-pubDate: 2024-02-01
-author: "Your Name"
+pubDate: 2026-02-01
+author: "Jason"
 tags: ["astro", "web development", "learning"]
 ---
 

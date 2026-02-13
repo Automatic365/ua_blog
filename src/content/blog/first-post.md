@@ -1,8 +1,8 @@
 ---
 title: "Welcome to My Blog"
 description: "This is my first blog post! Learn about what I'll be writing about and why I started this blog."
-pubDate: 2024-01-15
-author: "Your Name"
+pubDate: 2026-01-15
+author: "Jason"
 tags: ["introduction", "blogging"]
 ---
 

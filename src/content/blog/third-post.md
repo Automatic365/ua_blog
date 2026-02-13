@@ -1,8 +1,8 @@
 ---
 title: "The Power of Writing"
 description: "Why writing regularly has transformed my thinking and how you can benefit from it too."
-pubDate: 2024-02-10
-author: "Your Name"
+pubDate: 2026-02-10
+author: "Jason"
 tags: ["writing", "productivity", "habits"]
 ---
 

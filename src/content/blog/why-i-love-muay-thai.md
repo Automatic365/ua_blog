@@ -1,7 +1,7 @@
 ---
 title: "Why I Love Muay Thai: The Art of Eight Limbs"
 description: "Discovering the transformative power of Muay Thai training and what keeps me coming back to the gym."
-pubDate: 2024-02-13
+pubDate: 2026-02-13
 author: "Jason"
 tags: ["muay thai", "martial arts", "fitness", "personal growth"]
 ---
