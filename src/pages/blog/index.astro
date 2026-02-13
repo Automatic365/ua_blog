@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+// Get all blog posts and sort by date (newest first)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Blog - All Posts"
+  description="Read all my blog posts about technology, learning, and personal growth."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">All Posts</h1>
+      <p class="text-lg text-gray-600">
+        {sortedPosts.length} {sortedPosts.length === 1 ? 'post' : 'posts'} and counting...
+      </p>
+    </header>
+
+    <div class="grid gap-6">
+      {sortedPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          slug={post.slug}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
